@@ -18,6 +18,7 @@ def create_post():
     if request.method == "POST":
         title = request.form.get("title")
         content = request.form.get("content")
+        mongo.db.posts.insert_one({"title":title,"content":content})
 
         if title and content:
             posts.append({"title": title, "content": content})
