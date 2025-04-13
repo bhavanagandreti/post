@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
+from flask_pymongo import PyMongo
 
 app = Flask(__name__)
+app.config['MONGO_URI']='mongodb+srv://testuser:Test1234!@cluster0.mkcat7n.mongodb.net/test?authSource=admin'
+mongo=PyMongo(app)
+
 app.secret_key = "supersecret"
 
 posts = []
